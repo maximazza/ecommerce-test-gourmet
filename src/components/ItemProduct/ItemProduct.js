@@ -1,14 +1,16 @@
+import ItemCount from './ItemCount'
 import './ItemProduct.scss'
-const ItemProduct= ({title,price,image}) => {
+const ItemProduct= ({data,action}) => {
+    const {title,price,image,stock} = data
 return(
     <div>
         <img src={`/assets/${image}`} alt="Imagen producto" />
         <p>{title}</p>
         <span>${price}</span>
-        <button>Comprar</button>
+        <p>stock:{stock}</p>
+        <ItemCount />
+        <button onClick={action}>Comprar</button>
     </div>
-   
-
 )
 }
 export default ItemProduct
