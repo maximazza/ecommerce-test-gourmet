@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ItemProduct from './ItemProduct';
+import ItemProduct from "./ItemProduct/ItemProduct";
 import { productList } from '../data/data.js';
 
 const ItemList = () => {
@@ -32,24 +32,12 @@ const ItemList = () => {
       {
         products.length ? ( 
           <>
-            {
-              products.map((product) => {
-                return (
-                  <div key={product.id}>
-                    <ItemProduct
-                        title={product.title}
-                        image={product.image}
-                        price={product.price}
-                        stock={product.stock}
-                        id={product.id}
-                    />
+                <div>
+                   {productList.map(product => <ItemProduct data={product}/>)}    
                   </div>
-                );
-              })
-            }
           </>
         ) : (
-          <p>Cargando productos...</p>
+          <p>Cargando los Productos...</p>
         ) 
       }
     </div>
