@@ -1,19 +1,39 @@
-import{useState} from 'react'
-import './ItemCount.scss'
-const ItemCount = () =>{
-    const [count,setCount] = useState(1)
-    const addNumber = () =>{
-        setCount(count + 1)
-    }
-    const removeNumber = () =>{
-        setCount(count - 1)
+import React from 'react';
+import{useState} from 'react';
+import './ItemCount.scss';
+const ItemCount = ({initial,stock,onAdd}) =>{
+    const [count,setCount] = useState(initial);
+    const addProduct = (num) =>{
+        setCount(count + num)   
     }
 return(
-    <div className='countProd'>
-            <button onClick={removeNumber}>-</button>
-            <p>{count}</p>
-            <button onClick={addNumber}>+</button>  
+    <div className='countProduct'>
+        <div className='countProd'>
+            <button
+                className='count-button'
+                onClick={()=> addProduct(-1)}
+                disabled={count=== initial ? true : null}
+                >
+                    -
+            </button>
+            <span className="count-container__count">{count}</span>
+      
+            <button 
+                className='count-button'
+                onClick={()=> addProduct(+1)}
+                disabled={count=== stock ? true : null}
+                >
+                    +
+            </button>
+        </div>  
+            <button
+                className="button-agregar"
+                onClick={() => onAdd(count)}
+                disabled={stock === 0 ? true : null}
+            >
+                Agregar
+            </button>
     </div>
-    )
-}
-export default ItemCount
+    );
+};
+export default ItemCount;
