@@ -2,6 +2,7 @@ import './App.scss';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
 import Modal from './components/Modal/Modal';
+
 function App() {
   return (
     //jsx
@@ -16,8 +17,9 @@ function App() {
         <ItemListContainer section="Productos dulces"/>
         </Modal>
     </div>
-
-  );
-}
+  )
+};
+    
+   
 
 export default App;
