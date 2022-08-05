@@ -1,6 +1,6 @@
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemProduct.scss';
-const ItemProduct = (data) => {
+const ItemProduct = ({data}) => {
     const {title,price,image,stock,id} = data 
     const onAdd = (count) => {
         alert(`Has agregado ${count} tortas`);

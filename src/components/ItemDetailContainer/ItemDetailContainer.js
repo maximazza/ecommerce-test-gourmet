@@ -1,7 +1,6 @@
-import ItemDetail from "../ItemDetail/ItemDetail"
-import { useEffect } from "react"
-import productList  from "../data/data"
-import {useParams} from 'react-router-dom'
+import ItemDetail from "../ItemDetail/ItemDetail";
+import{useState,useEffect} from "react";
+import {useParams} from 'react-router-dom';
 
 const ItemDetailContainer = () => {
    const[productList,setProductList] = useState({})
@@ -12,7 +11,7 @@ const ItemDetailContainer = () => {
 
     const filterById = () => {
         productList.some((productList)=>{
-            if(productList.id==id) {
+            if(productList.id===id) {
                 console.log('producto filtrado:',productList)
                 setProductList(productList)
             }

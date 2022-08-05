@@ -1,5 +1,6 @@
 import './NavBar.scss'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom'
 const NavBar = () => {
     return(
     <div className="navbar-primary">
@@ -7,17 +8,16 @@ const NavBar = () => {
       <img src="/assets/icono de torta.webp" alt="icono de torta" />
       </div>
       <ul>
-        <li><button>Inicio</button></li>
-        <li><button>Productos</button></li>
-        <li><button>Nosotros</button></li>
-        <li><button>Locales</button></li>
+        <Link to="/"><li><button>Inicio</button></li></Link>
+        <Link to="/productos"><li><button>Productos</button></li></Link>
+        <Link to="/nosotros"><li><button>Nosotros</button></li></Link>
+        <Link to="/locales"><li><button>Locales</button></li></Link>
       </ul>
-      
         <CartWidget  />
-    </div> 
-       
+    </div>    
     )
 }
+
 export default NavBar
     
     

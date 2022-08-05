@@ -1,25 +1,24 @@
 import './App.scss';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
-import Modal from './components/Modal/Modal';
-
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Locales from './pages/Locales';
+import Productos from './pages/Productos';
+import Nosotros from './pages/Nosotros';
 function App() {
+
   return (
     //jsx
-    <div className="container">
+    <BrowserRouter>
       <NavBar />
-      <div>  
-        <ItemListContainer section="Productos mas caros" />
-        <ItemListContainer section="Productos mas baratos"/>
-        <ItemListContainer section="Productos dulces"/>
-      </div>
-        <Modal title="MODAL DE REGISTRO">
-        <ItemListContainer section="Productos dulces"/>
-        </Modal>
-    </div>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path="/locales" element={<Locales/>}/>
+        <Route path="/productos" element={<Productos/>}/>
+        <Route path="/nosotros" element={<Nosotros/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 };
     
-   
-
 export default App;

@@ -1,8 +1,9 @@
-const ItemDetail = ({data}) => {
+
+const ItemDetail = (data) => {
     return(
         <> 
         <div className="item-detail-image">
-            <img src={`/assets/${data.image}`} alt="image" />
+        <img src={`/assets/${data.image}`} alt="Imagen producto" />
         </div>
         <div className="item-detail-info">
             <span>tortas</span>
