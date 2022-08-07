@@ -8,10 +8,10 @@ const NavBar = () => {
       <img src="/assets/icono de torta.webp" alt="icono de torta" />
       </div>
       <ul>
-        <Link to="/"><li><button>Inicio</button></li></Link>
-        <Link to="/productos"><li><button>Productos</button></li></Link>
-        <Link to="/nosotros"><li><button>Nosotros</button></li></Link>
-        <Link to="/locales"><li><button>Locales</button></li></Link>
+        <Link to="/"><li><button>Home</button></li></Link>
+        <Link to="/productos"><li><button>Products</button></li></Link>
+        <Link to="/nosotros"><li><button>AboutUs</button></li></Link>
+        <Link to="/locales"><li><button>Local</button></li></Link>
       </ul>
         <CartWidget  />
     </div>    

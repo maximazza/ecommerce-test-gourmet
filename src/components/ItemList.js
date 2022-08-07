@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useParams } from 'react';
 import ItemProduct from "./ItemProduct/ItemProduct";
 import { productList } from '../data/data.js';
 
 const ItemList = () => {
+  const{categoryId} = useParams();
 
-  const [products, setProducts] = useState([]);
+  const [products, setProductsFromDB] = useState([]);
 
-  
-  const getProducts = new Promise((resolve, reject) => {
+  const filterByCategory = productList.filter((productList) => productList.category === categoryId);
+  const getProductsFromDB = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(productList);
-    }, 2000);
-  });
-
-  const getProductsFromDB = async () => {
-    try {
-      const result = await getProducts;
-      setProducts(result);
-    } catch (error) {
-      console.log(error);
-      alert('No podemos mostrar los productos en este momento');
-    }
-  };
+      if(categoryId){
+        resolve(filterByCategory)
+      }else{
+        resolve(productList);
+        }
+      }, 200);
+    });
 
   useEffect(() => {
-    getProductsFromDB();
+    getProductsFromDB
+    .then((res)=>{
+      setProductsFromDB(res);
+    })
+    .catch((error)=>{
+      console.log('fallo la llamada');
+    })
+    .finally(()=>{
+    });
+
   }, []); 
 
   return (
