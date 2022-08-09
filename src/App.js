@@ -15,6 +15,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
+      <Route path='img' element={<ItemListContainer/>}/>
         <Route path='/' element={<ItemListContainer/>}/>
         <Route path='/products' element={<ItemProduct/>}/>
         <Route path='/products/:id' element={<ItemDetailContainer/>}/>
