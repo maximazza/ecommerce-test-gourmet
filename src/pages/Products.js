@@ -3,7 +3,7 @@ const Products = () => {
     return(
       <div className="container">
         <section className='main-container'>
-          <ItemListContainer section='Productos en oferta'/>
+          <ItemListContainer section='todos nuestros productos'/>
         </section>
       </div>
     )

@@ -1,39 +1,33 @@
-import React from 'react';
-import{useState} from 'react';
+import { useState, useContext } from "react"
+import { CartContext } from "../../context/CartContext"
 import './ItemCount.scss';
-const ItemCount = ({initial,stock,onAdd}) =>{
-    const [count,setCount] = useState(initial);
-    const addProduct = (num) =>{
-        setCount(count + num)   
+const ItemCount = ({setQuantitySelected, productData}) => {
+    const { addProductToCart } = useContext(CartContext)
+
+    const [countQuantity, setCountQuantity] = useState(1)
+
+    const addQuantity = () => {
+        setCountQuantity(countQuantity + 1)
+    }
+    
+    const removeQuantity = () => {
+        setCountQuantity(countQuantity - 1)
+    }
+
+    const onAdd = () => {
+        console.log("Agregar al carrito: ", productData)
+        addProductToCart(productData)
+        setQuantitySelected(countQuantity)
     }
 return(
-    <div className='countProduct'>
-        <div className='countProd'>
-            <button
-                className='count-button'
-                onClick={()=> addProduct(-1)}
-                disabled={count=== initial ? true : null}
-                >
-                    -
-            </button>
-            <span className="count-container__count">{count}</span>
-      
-            <button 
-                className='count-button'
-                onClick={()=> addProduct(+1)}
-                disabled={count=== stock ? true : null}
-                >
-                    +
-            </button>
-        </div>  
-            <button
-                className="button-agregar"
-                onClick={() => onAdd(count)}
-                disabled={stock === 0 ? true : null}
-            >
-                Agregar
-            </button>
-    </div>
+    <>
+        <div className="container-count">
+            <button onClick={removeQuantity}>-</button>
+            <span>{countQuantity}</span>
+            <button onClick={addQuantity}>+</button>
+        </div>
+        <button onClick={onAdd}>AGREGAR AL CARRITO</button>
+    </>
     );
 };
 export default ItemCount;

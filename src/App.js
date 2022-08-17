@@ -1,33 +1,33 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Logo from './pages/Logo';
 import Home from './pages/Home';
-import Local from './pages/Local';
-import Products from './pages/Products';
+import Contact from './pages/Contact';
+import Detail from './pages/Detail';
+import Checkout from './pages/Checkout';
+import CartProvider from './context/CartContext'
+import ItemListContainer from './components/ItemListContainer/ItemContainer';
 import AboutUs from './pages/AboutUs';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import ItemProduct from './components/ItemProduct/ItemProduct';
 function App() {
 
   return (
     //jsx
+    <CartProvider>
     <BrowserRouter>
       <NavBar />
       <Routes>
-      <Route path='img' element={<ItemListContainer/>}/>
-        <Route path='/' element={<ItemListContainer/>}/>
-        <Route path='/products' element={<ItemProduct/>}/>
-        <Route path='/products/:id' element={<ItemDetailContainer/>}/>
-        <Route path='/category/:categoryId' element={<ItemDetailContainer
-        />}/>
-        <Route path='/cart' element={<ItemListContainer/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path="/local" element={<Local/>}/>
-        <Route path="/products" element={<Products/>}/>
-        <Route path="/aboutus" element={<AboutUs/>}/>
+        <Route path='/' element={<Logo/>}/>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/contacto' element={<Contact/>}/>
+        <Route path='/aboutus' element={<AboutUs/>}/>
+        <Route path='/productos' element={<ItemListContainer />}/>
+        <Route path='/productos/:id' element={<Detail/>}/>
+        <Route path='/cart' element={<Checkout/>}/>
+        <Route path="*" element={<h1>ERROR 404 -  pagina no encontrada</h1>}/>
       </Routes>
     </BrowserRouter>
+    </CartProvider>
   )
 };
     

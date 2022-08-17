@@ -1,20 +1,19 @@
 import './NavBar.scss'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
+
 const NavBar = () => {
     return(
-    <div className="navbar-primary">
-      <div className="logo">
-      <img src="/assets/icono de torta.webp" alt="icono de torta" />
-      </div>
-      <ul>
-        <Link to="/"><li><button>Home</button></li></Link>
-        <Link to="/productos"><li><button>Products</button></li></Link>
-        <Link to="/nosotros"><li><button>AboutUs</button></li></Link>
-        <Link to="/locales"><li><button>Local</button></li></Link>
-      </ul>
-        <CartWidget  />
-    </div>    
+        <div className='navbar-primary'>
+            <Link to="/"><img className='logo' src="/assets/icono de torta.webp" alt="icono de torta"/></Link>
+            <ul>
+                <Link to="/"><li><button>Inicio</button></li></Link>
+                <Link to="/productos"><li><button>Productos</button></li></Link>
+                <Link to="/aboutus"><li><button>About Us</button></li></Link>
+                <Link to="/contacto"><li><button>Contacto</button></li></Link>
+            </ul>
+            <CartWidget />
+        </div>
     )
 }
 

@@ -1,24 +1,31 @@
 import ItemCount from "../ItemCount/ItemCount"
+import './ItemDetail.scss'
+import { useState } from "react"
+import { Link } from 'react-router-dom'
 
-const ItemDetail = (data) => {
+const ItemDetail = ({data, setShowModal}) => {
+    const [quantitySelected, setQuantitySelected] = useState(0)
     return(
-        <> 
-        <div className="item-detail-image">
-        <img src={`/assets/${data.image}`} alt="Imagen producto" />
-        </div>
-        <div className="item-detail-info">
-            <h2>{data.price}</h2>
-            <h2>{data.title}</h2>
-            <p>o 2 cuotas de $900 pagando con tarjeta de credito</p>
-            <ItemCount initial={data.initial} stock={data.stock} />
-            <spam>Envio Gratis</spam>
-        </div>
-        <div>
-            <button>Comprar Ahora</button>
-            <button>Añadir al Carrito</button>
-        </div>
+        <>
+            <div className="item-detail-image" >
+                <img className="imagen"
+                    src={`/assets/${data.image}`} 
+                    alt="imagen" 
+                    onClick={() => setShowModal(true)}
+                />
+            </div>
+            <div className="item-detail-info">
+                <span className="category">dulces o saladas</span>
+                <h2>{data.title}</h2>
+                <p className="detail-info__price">$ {data.price}</p>
+                <span>Tortas</span>
+                {console.log("quantitySelected: ", quantitySelected)}
+    {
+        quantitySelected > 0 ? <button><Link to="/cart">TERMINAR COMPRA</Link></button> : <ItemCount setQuantitySelected={setQuantitySelected} productData={data}/>
+    } 
+            </div>
         </>
     )
 }
 
-export default ItemDetail;
+export default ItemDetail

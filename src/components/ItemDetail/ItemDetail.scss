@@ -1,0 +1,31 @@
+.container-count {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.item-detail-image{
+    width: 35%;
+    height: 35%;
+}
+.imagen{
+    width: 35%;
+    height: 35%;
+}
+
+.container-count button {
+    background: #ffff6f;
+    font-size: 30px;
+    padding: 10px;
+    width: 50px;
+    border: 1px solid #CCC;
+}
+
+.container-count span {
+    font-size: 26px;
+    margin: 0px 20px;
+}
+
+.item-detail-info > button a {
+    color: #ffff6f;
+    text-decoration: none;
+}

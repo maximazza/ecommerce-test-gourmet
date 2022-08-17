@@ -1,30 +1,40 @@
-import ItemDetail from "../ItemDetail/ItemDetail";
-import{useState,useEffect} from "react";
-import {useParams} from 'react-router-dom';
+import { useEffect, useState } from "react"
+import ItemDetail from "../ItemDetail/ItemDetail"
+import './ItemDetailContainer.scss'
+import products from "../../utils/products.mock"
+import { useParams } from 'react-router-dom'
+import Modal from '../Modal/Modal'
 
 const ItemDetailContainer = () => {
-   const[productList,setProductList] = useState({})
-    const {id} = useParams()
-    useEffect(() => {
+    const [productData, setProductData] = useState({})
+    const [showModal, setShowModal] = useState(false)
+    const { id } = useParams()
+
+    useEffect( () => {
         filterById()
-    },[])
+    }, [id])
 
     const filterById = () => {
-        productList.some((productList)=>{
-            if(productList.id===id) {
-                console.log('producto filtrado:',productList)
-                setProductList(productList)
+        products.some( (product) => {
+            if(product.id == id) {
+                console.log("producto filtrado: ", product)
+                setProductData(product) 
             }
         }
     )
     }
-
+    
     return(
-        <div className="container-item-detail">
-            <h1>Detalle</h1>
-            <ItemDetail data={productList} />
+        <div className={`container-item-detail ${showModal ? 'overlay-black' : ''}`}>
+            <ItemDetail data={productData} setShowModal={setShowModal}/>
+            {showModal && (
+                <Modal title="Imagen Producto" close={setShowModal}>
+                    <img src={`/assets/${productData.image}`} alt=""/>
+                </Modal>
+            )}
         </div>
     )
+            
 }
-  
+
 export default ItemDetailContainer
