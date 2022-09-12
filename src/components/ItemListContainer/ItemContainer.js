@@ -1,21 +1,9 @@
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
-import products from '../../utils/products.mock'
 import { collection,getDocs } from "firebase/firestore"
 import db from "../../firebaseConfig"
 
-//Funcion asincrona
-// const getLog = async () => {
-//     try {
-//         const responseLog = await logPromise()
-//         console.log("Respuesta desde async function" + responseLog)
-//     }
-//     catch(error) {
-//         console.log(error)
-//     }
-// }
-//getLog()
 const ItemListContainer = ({section}) => {
 
     const [listProducts, setListProducts] = useState([])

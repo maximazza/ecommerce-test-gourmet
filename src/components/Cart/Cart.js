@@ -10,7 +10,7 @@ const Cart = () => {
     const { cartProducts, totalPrice } = useContext(CartContext)
     const [success, setSuccess] = useState()
 
-    const [order, setOrder] = useState({
+    const [order] = useState({
         items: cartProducts.map((product) => {
             return {
                 id: product.id,
@@ -52,7 +52,7 @@ const Cart = () => {
             <div className="info-checkout">
                 {console.log("order: ", order)}
                 <h2>TU CARRITO</h2>
-                <span>TOTAL (2 productos) <b>$ 66.998</b></span>
+                <span>TOTAL (2 productos) <b>$ 2000</b></span>
                 <p>Los artículos en tu carrito no están reservados. Terminá el proceso de compra ahora para hacerte con ellos.</p>
                 <div className="container-checkout-products">
                     {cartProducts.map( (cartProduct) => {
@@ -76,7 +76,7 @@ const Cart = () => {
                         <h3>RESUMEN DE PEDIDO</h3>
                         <div className="item-purchase">
                             <p>2 PRODUCTOS</p>
-                            <p>$ 60.000</p>
+                            <p>$ 2000</p>
                         </div>
                         <div className="item-purchase">
                             <p>ENTREGA</p>
@@ -84,7 +84,7 @@ const Cart = () => {
                         </div>
                         <div className="item-purchase">
                             <p>TOTAL</p>
-                            <p>$ 60.000</p>
+                            <p>$ 2000</p>
                         </div>
                     </div>
                 </div>
